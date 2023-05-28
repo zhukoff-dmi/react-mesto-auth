@@ -3,9 +3,8 @@ export const BASE_URL = "https://auth.nomoreparties.co";
 const getJson = (res) => {
     if (res.ok) {
         return res.json();
-    } else {
-        return res.status;
-    }
+    } 
+    return Promise.reject(`Ошибка ${res.status}`);
 }
 
 export const signIn = (email, password) => {
